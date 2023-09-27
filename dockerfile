@@ -1,5 +1,10 @@
 FROM node:18-alpine
 WORKDIR /app
+
+#add users
+RUN addgroup dev && adduser -S -G daiane dev
+USER daiane
+
 COPY . .
 #COPY yarn.lock package.json
 #COPY package.json /app/
@@ -19,4 +24,5 @@ RUN yarn install --production
 #node /src/index.ls
 CMD ["node", "src/index.js"] #qdo a imagem ja foi construida
 
+#port
 EXPOSE 3000
