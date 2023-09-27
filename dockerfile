@@ -2,7 +2,7 @@ FROM node:18-alpine
 WORKDIR /app
 
 #add users
-RUN addgroup dev && adduser -S -G daiane dev
+RUN addgroup -S dev && adduser -S daiane -G dev
 USER daiane
 
 COPY . .
@@ -25,4 +25,4 @@ RUN yarn install --production
 CMD ["node", "src/index.js"] #qdo a imagem ja foi construida
 
 #port
-EXPOSE 3000
+EXPOSE 3000 
